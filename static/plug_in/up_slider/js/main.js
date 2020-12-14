@@ -16,7 +16,7 @@ $(document).ready(function() {
 				return false;
 			}
 		}
-
+		/**
 		function tSlideChangerRight() {
 			if ($('.current-t-slide').next().hasClass('t-slide') && tSliderHasStopped()) {
 				$('.current-t-slide').removeClass('current-t-slide').css($hiddenSlideStylesLeft).next().css($tSlideInStyles).addClass('current-t-slide');
@@ -41,7 +41,7 @@ $(document).ready(function() {
 				$('.t-dot').last().addClass('current-dot');
 			}
 		}
-
+		**/
 		function tSetCss() {
 			$('.t-slide').each(function(index, value) {
 				if (index > 0) {
@@ -72,16 +72,16 @@ $(document).ready(function() {
 		tStartLoadBar();
 		$('.trent-slider').hover(function() {$('.t-load-bar .inner-load-bar').css($t_loadBarStopStyles);}, function() {tStartLoadBar()})
 		//interval sllide change
-		var tSlideChange = window.setInterval(function() {
-			tSlideChangerRight();
-		}, 4500);
-		$('.trent-slider').mouseover(function() {
-			clearInterval(tSlideChange);
-		}).mouseout(function() {
-			tSlideChange = window.setInterval(function() {
-				tSlideChangerRight();
-			},4500);
-		});
+		// var tSlideChange = window.setInterval(function() {
+		// 	tSlideChangerRight();
+		// }, 4500);
+		// $('.trent-slider').mouseover(function() {
+		// 	clearInterval(tSlideChange);
+		// }).mouseout(function() {
+		// 	tSlideChange = window.setInterval(function() {
+		// 		tSlideChangerRight();
+		// 	},4500);
+		// });
 
 		// -----slider controls
 		//arrow

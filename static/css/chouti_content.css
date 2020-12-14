@@ -1,0 +1,123 @@
+/* 主体部分 */
+.main-content-box, .main-content{
+    width: 100%; 
+    height: auto;
+}
+/* .bgimg{
+    background-image: url('/FirstWebDjango/static/images/bg/bgsmall.png');
+    background-repeat: repeat;
+} */
+body{
+    background-image: url('/FirstWebDjango/static/images/bg/bgsmall.png');
+    background-repeat: repeat;
+}
+.main-content{
+    position: relative;
+    top: 70px;
+    margin: 0 auto;
+    width: 1200px;
+    height:auto!important;
+    min-height: 900px;
+}
+.content-l{
+    float: left;
+    height: auto;
+    min-height: 700px;
+    width: 800px;
+    background-color:white;
+    border: solid orange 1px;
+    border-radius: 1.5%;
+
+}
+.l-head{
+    width: 800px;
+    height: 80px;
+    border-bottom: solid orange 1.2px;
+}
+.l-head-right{
+    float: left;
+    margin:30px 30px;
+}
+.l-head-right a{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 2px;
+    margin-right: 20px;
+
+
+}
+.l-head-left{
+    float: left;
+    margin:30px 20px;
+}
+.l-head-left a{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 2px;
+    margin-right: 5px;
+    padding-left: 20px;
+}
+.plugins{
+    float: right;
+    margin: -62px 40px;
+}
+.plugins a{
+    text-decoration: none;
+    display: inline-block;
+    height: 40px;
+    width: 130px;
+    border: solid orange 1px;
+    text-align: center;
+    background-color: orange    ;
+    color:black;
+    font-weight: 500;
+    font-size: 18px;
+    padding-top: 10px;
+}
+.active {
+    text-decoration:  red underline !important;
+}
+a:hover{
+    color: red;
+}
+.content-r{
+    float: right;
+    height: auto;
+    min-height: 500px;
+    width: 380px;
+    top:0;
+    right: 0;
+    border: solid blueviolet 2px;
+    background-image: url("/FirstWebDjango/static/images/bg/dda8234f810b33e.png");
+    background-size:cover;
+    background-position: -361px 0px;
+    background-repeat: no-repeat;
+    border-radius: 1.2%;
+    translate: 0.6s;
+}
+.content-page{
+    clear: both;
+    height: auto;   
+    min-height: 100px;
+    width: 600px;
+    margin-bottom: 40px;
+    border: solid red 2px;
+}
+.content-tip{
+    float: right;
+    height:auto;
+    margin-top: 0px;
+    min-height: 700px;
+    width: 500px;
+    bottom: 0px;
+    right: 0px;
+    border: solid red 2px;
+}

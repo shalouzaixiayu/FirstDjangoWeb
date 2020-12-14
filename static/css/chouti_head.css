@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 18px;
+    min-height: 200vh;
+}
+/* 导航条 */
+.head-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color:orange;
+    /* opacity: 0.7; */
+    height: 70px;
+    width: 100%;
+    z-index: 999;
+}
+.head-box.bgchange{
+    background-color: beige;
+}
+
+.fontchange{
+    color: brown !important;
+}
+.head-content {
+    height: 70px;
+    width: 1200px;
+    margin: 0 auto;
+}
+.head-content .logo a{
+    position: relative;
+    margin-top: 5px;
+    color: black;
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 1s;
+    float: left;
+}
+.content ul{
+    float: left;
+    margin-left: 50px;
+}
+.content ul li, .login a{
+    /* display: block; */
+    /* height: 40px;
+    width: 103px; */
+    float: left;
+    list-style-type: none;
+    margin: 22px 15px 0 12px;
+}
+.content ul li a, .login a{
+  
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 22px;
+    padding: 0 16px 0 13px;
+}
+.content ul li a:hover, .login a:hover{
+    color: brown;
+    opacity: 0.8;
+}
+/* 权重 */
+.content .active {
+    color: crimson;
+}
+.login a{
+    float: right;
+    margin-top: 27px;
+}
+.search{
+    position: relative;
+    float: right;
+    margin: 23px -8px;
+}
+.search span{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.search input{
+    width: 130px;
+    height: 27px;
+    border:2px solid;
+    border-radius: 25px;
+    
+}
+/* font-weight: 700 !important;  设置这个首先执行*/
+ 
+
