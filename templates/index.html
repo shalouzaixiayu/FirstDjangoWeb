@@ -1,100 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>模拟武汉school</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组合搜索</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .position, .gender {
+            border-bottom: solid #dddddd 1px;
+            height: 55px;
+            transition: 0.6s;
+        }
+
+        .position a, .gender a {
+            font-size: 18px;
+            font-weight: 500;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            margin: 20px 5px;
+            color: #333333;
+            padding-left: 5px;
+        }
+
+        .active {
+            color: red !important;
+        }
+
+        a:hover {
+            color: orange;
+            border-bottom: solid 1px #dddddd;
+        }
+        .result{
+            width: 300px;
+            height: auto;
+            text-align: center;
+            word-spacing: 2px;
+            margin: 20px;
+            border-bottom: solid #dddddd 2px;
+            border-left: solid #dddddd 2px;
+        }
+    </style>
 </head>
-<link rel="stylesheet" href="/static/css/up_slider.css">
-<link rel="stylesheet" href="/static/plug_in/bootstrap/css/bootstrap.min.css">
 <body>
-<style>
-    .top li {
-        float: left;
-        list-style: none;
-        margin: 0;
-    }
+<h2 style="padding:25px 0 0 25px">组合搜索</h2>
+<br>
+<div class="position">
 
-    .top a {
-        color: white;
-        font-size: 10px;
-    }
-    .top {
-        background-image: url("/static/images/bg/bg.png");
-        height: 60px;
-        width: 100%;
-        color: white;
-    }
-</style>
-<!--导航-->
-<div>
+    <!--全选-->
+    {% if kwargs.position_id == 0 %}
+        <a class="active" href="/index-0-{{ kwargs.gender_id }}.html">全选</a>
+    {% else %}
+        <a href="/index-0-{{ kwargs.gender_id }}.html">全选</a>
+    {% endif %}
 
-
-    <ul class="top">
-        <li><a href="#">学生</a></li>
-        <li><a href="#">教工</a></li>
-        <li><a href="#">校友</a></li>
-        <li><a href="#">访客</a></li>
-    </ul>
+    {% for position in position_list %}
+        {% if kwargs.position_id == position.position_id %}
+            <a class="active"
+               href="/index-{{ position.position_id }}-{{ kwargs.gender_id }}.html">{{ position.position_name }}</a>
+        {% else %}
+            <a href="/index-{{ position.position_id }}-{{ kwargs.gender_id }}.html">{{ position.position_name }}</a>
+        {% endif %}
+    {% endfor %}
 </div>
-
-{#<div>#}
-{#    <ul class="nav nav-tabs nav-justified nav-pills">#}
-{#        <li role="presentation" class="active"><a href="index.html">Home</a></li>#}
-{#        <li role="presentation"><a href="http://www.baidu.com">Baidu</a></li>#}
-{#        <li role="presentation"><a href="http://www.jd.com">Jd</a></li>#}
-{#    </ul>#}
-{#</div>#}
-
-
-<!--上方的轮播图-->
-{#<div>#}
-{#    <div class="trent-slider">#}
-{#        <div class="t-slide current-t-slide">#}
-{#            <img src="/static/plug_in/up_slider/img/1.jpg" alt=""/>#}
-{#        </div>#}
-{#        <div class="t-slide">#}
-{#            <img src="/static/plug_in/up_slider/img/2.jpg" alt=""/>#}
-{#        </div>#}
-{#        <div class="t-slide">#}
-{#            <img src="/static/plug_in/up_slider/img/3.jpg" alt=""/>#}
-{#        </div>#}
-{#        <div class="t-slide">#}
-{#            <img src="/static/plug_in/up_slider/img/4.jpg" alt=""/>#}
-{#        </div>#}
-{#        <div class="t-slider-controls">#}
-{#            <div class="arrow right-arrow">#}
-{#                <div class="arrow-container">#}
-{#                    <div class="arrow-icon"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="arrow left-arrow">#}
-{#                <div class="arrow-container">#}
-{#                    <div class="arrow-icon"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="t-load-bar">#}
-{#                <div class="inner-load-bar"></div>#}
-{#            </div>#}
-{#            <div class="t-dots-container">#}
-{#                <div class="t-slide-dots-wrap">#}
-{#                    <div class="t-slide-dots">#}
-{##}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#</div>#}
-
+<div class="gender">
+    <!--全选-->
+    {% if kwargs.gender_id == 0 %}
+        <a class="active" href="/index-{{ kwargs.position_id }}-0.html">全选</a>
+    {% else %}
+        <a href="/index-{{ kwargs.position_id }}-0.html">全选</a>
+    {% endif %}
+    {% for gender in gender_list %}
+        {% if gender.gender_id == kwargs.gender_id %}
+            <a class="active"
+               href="/index-{{ kwargs.position_id }}-{{ gender.gender_id }}.html">{{ gender.gender_fix }}</a>
+        {% else %}
+            <a href="/index-{{ kwargs.position_id }}-{{ gender.gender_id }}.html">{{ gender.gender_fix }}</a>
+        {% endif %}
+    {% endfor %}
+</div>
+{#结果区#}
+<div>
+    {% for foo in result %}
+        <div class="result">
+            <strong>{{ foo.name }}</strong><br>
+            <em>{{ foo.name_price }}</em>
+            <p style="color: red">
+                {{ foo.name_describe }}
+            </p>
+        </div>
+    {% endfor %}
+</div>
 </body>
-
-<script src="/static/plug_in/jquery/jquery-3.5.1.min.js"></script>
-<script src="/static/plug_in/up_slider/js/main.js"></script>
-<script src="/static/plug_in/bootstrap/js/bootstrap.min.js"></script>
-
-
-<script>
-
-</script>
-
 </html>

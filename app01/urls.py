@@ -9,5 +9,6 @@ from app01 import views
 app_name = "index"
 
 urlpatterns = [
-    path('index.html', views.index, name="index"),
+    path("index.html", views.redIndex),
+    path('index-<int:position_id>-<int:gender_id>.html', views.index, name="index"),
 ]
